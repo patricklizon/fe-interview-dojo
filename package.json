@@ -11,16 +11,11 @@
     "test:watch": "watchlist tests src -- npm run test",
     "test:format": "prettier --config ./.prettierrc \"src/**/*.ts\"",
     "test:lint": "eslint --ext=jsx,ts,tsx src",
-    "test:types": "tsc -p tsconfig.json --noEmit --skipLibCheck"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "post-commit": "git update-index --again"
-    }
+    "test:types": "tsc -p tsconfig.json --noEmit --skipLibCheck",
+    "lint:staged": "lint-staged"
   },
   "lint-staged": {
-    "*.{ts}": [
+    "*.ts": [
       "prettier --config .prettierrc --write",
       "eslint --fix"
     ]
