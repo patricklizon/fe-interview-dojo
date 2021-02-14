@@ -1,10 +1,12 @@
 {
-  "name": "typescript-uvu-template",
+  "name": "problem-solving-env",
   "version": "0.0.1",
-  "description": "template for problem solving",
+  "description": "Environment for problem solving with TS and uvu",
+  "private": true,
   "scripts": {
     "fix:format": "npm run test:format -- --write",
     "fix:lint": "npm run lint -- --fix",
+    "postinstall": "husky install",
     "test": "uvu -r ts-node/register src",
     "test:watch": "watchlist tests src -- npm run test",
     "test:format": "prettier --config ./.prettierrc \"src/**/*.ts\"",
@@ -18,7 +20,7 @@
     }
   },
   "lint-staged": {
-    "*.{ts,tsx}": [
+    "*.{ts}": [
       "prettier --config .prettierrc --write",
       "eslint --fix"
     ]
