@@ -1,7 +1,7 @@
 import { suite } from "uvu";
 import assert from "uvu/assert";
 
-import { flatten } from "./exampe";
+import { flatten } from "./example";
 
 const Flatten = suite("flatten");
 
