@@ -1,4 +1,4 @@
-# problem-solving-env &middot;
+# Frontend interview dojo &middot;
 
 Simple environment for solving coding challenges.
 
