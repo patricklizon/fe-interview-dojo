@@ -1,23 +1,14 @@
-// Implement debounce
-
-export const debounce = <T extends (args: any) => any>(
+export const debounce = <T extends (args: any) => unknown>(
   fun: T,
   timeout: number
 ): T => {
   let timeoutId: NodeJS.Timeout | undefined;
-  return function (this: T, ...rest) {
+
+  return function (this: T, ...args: Parameters<T>) {
+    // eslint-disable-next-line no-invalid-this
+    const deferredFun = () => fun.apply(this, args);
     if (timeoutId) clearTimeout(timeoutId);
 
-    timeoutId = setTimeout(
-      () =>
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-        fun.apply(
-          // eslint-disable-next-line no-invalid-this
-          this,
-          rest
-        ),
-      timeout
-    );
-    timeoutId = undefined;
+    timeoutId = setTimeout(deferredFun, timeout);
   } as T;
 };
