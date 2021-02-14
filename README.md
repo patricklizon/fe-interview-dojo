@@ -4,11 +4,11 @@ Simple environment for solving coding challenges.
 
 ## Table of content
 
-[Stack](#Stack)
-[Prerequisites](#Prerequisites)
-[Setup](#Setup)
-[Scripts](#Scripts)
-[Contributing](#Contributing)
+1. [Stack](#Stack)
+2. [Prerequisites](#Prerequisites)
+3. [Setup](#Setup)
+4. [Scripts](#Scripts)
+5. [Known issues](<#Known\ issues>)
 
 ## Stack
 
@@ -60,3 +60,7 @@ Summary of defined npm scripts.
 | ------------ | -------------------------- |
 | `fix:format` | tries to fix formatting    |
 | `fix:lint`   | tries to fix linter issues |
+
+## Known issues
+
+- [Sinon types have to be patched in tsconfig](https://github.com/sinonjs/fake-timers#help-us-get-our-typescript-definitions-production-ready)

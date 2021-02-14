@@ -1,10 +1,18 @@
 import { test } from "uvu";
 import assert from "uvu/assert";
-import * as sinon from "sinon";
+import FakeTimers from "@sinonjs/fake-timers";
 
 import { debounce } from "../src/debounce";
 
-const clock = sinon.useFakeTimers();
+let clock: FakeTimers.InstalledClock;
+
+test.before(() => {
+  clock = FakeTimers.install();
+});
+
+test.after(() => {
+  clock.uninstall();
+});
 
 test("runs function as soon as possible", () => {
   let actual = 0;
@@ -37,14 +45,13 @@ test("runs function once after defined timeout", () => {
   let actual = 0;
   const expected = 1;
   const fun = () => (actual += 1);
-  const debouncedFun = debounce(fun, 200);
-
-  clock.tick(100);
+  const debouncedFun = debounce(fun, 10);
+  clock.tick(9);
 
   assert.is.not(actual, expected);
 
   debouncedFun();
-  clock.tick(200);
+  clock.tick(10);
 
   assert.is(actual, expected);
 });
