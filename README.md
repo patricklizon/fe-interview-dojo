@@ -1,22 +1,14 @@
-# core-boilerplate &middot; most basic SPA boilerplate
+# problem-solving-env &middot;
 
-< short description >
+Simple environment for solving coding challenges.
 
 ## Table of content
 
-[Resources](#Resources)
 [Stack](#Stack)
 [Prerequisites](#Prerequisites)
 [Setup](#Setup)
 [Scripts](#Scripts)
 [Contributing](#Contributing)
-[Testing](#Testing)
-[Deployment](#Deployment)
-[Known Issues](#Known-Issues)
-
-## Resources
-
-< section description >
 
 ## Stack
 
@@ -39,14 +31,11 @@ _It's recommended to use node version manger (ie. [fnm](https://github.com/Schni
 ## Setup
 
 ```sh
-# Copy environmental variables
-cp .env.example .env
-
 # Install dependencies
 npm ci
 
-# Start dev server
-npm start
+# Start tests in watch mode
+npm run test:watch
 ```
 
 ## Scripts
@@ -69,15 +58,3 @@ Summary of defined npm scripts.
 | ------------ | -------------------------- |
 | `fix:format` | tries to fix formatting    |
 | `fix:lint`   | tries to fix linter issues |
-
-## Contributing
-
-### For future yourself and other contributors
-
-- When adding `TODO` or `FIXME` comments write why something was done that way and propose solution to the problem,
-- If code is not clear enough or you believe it needs extra context don't hesitate to add comment explaining why or mention people involved in the decision,
-- "Always leave the code you are editing a little bit better than you found it"
-
-## Known Issuess
-
-- Hot reloading is not working
