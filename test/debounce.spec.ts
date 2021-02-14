@@ -4,18 +4,7 @@ import * as sinon from "sinon";
 
 import { debounce } from "../src/debounce";
 
-const clock = sinon.useFakeTimers({
-  now: 1483228800000,
-  toFake: ["setTimeout"],
-});
-
-test.before(() => {
-  clock.runAll();
-});
-
-test.after(() => {
-  clock.restore();
-});
+const clock = sinon.useFakeTimers();
 
 test("runs function as soon as possible", () => {
   let actual = 0;
@@ -31,10 +20,10 @@ test("runs function as soon as possible", () => {
 
 test("runs function with arguments", () => {
   let actual = 1;
-  const expected = 6;
+  const inc = 5;
+  const expected = actual + inc;
   const fun = (inc: number) => (actual += inc);
   const debouncedFun = debounce(fun, 0);
-  const inc = 5;
 
   assert.is.not(actual, expected);
 
@@ -67,11 +56,9 @@ test("runs function only once after multiple calls", () => {
   const debouncedFun = debounce(fun, 10);
 
   debouncedFun();
-  clock.tick(1);
   debouncedFun();
-  clock.tick(1);
   debouncedFun();
-  clock.tick(50);
+  clock.runAll();
 
   assert.is(actual, expected);
 });
