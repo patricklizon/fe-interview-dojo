@@ -1,5 +1,6 @@
 import { suite } from "uvu";
 import assert from "uvu/assert";
+
 import { flatten } from "./exampe";
 
 const Flatten = suite("flatten");
@@ -12,7 +13,7 @@ Flatten("returns unmodified flat array", () => {
   assert.equal(given, expected);
 });
 
-Flatten("returns flatten array", () => {
+Flatten("flattens deeply nested array", () => {
   const array = [1, [2, [3, [4, [5, [6, [7]]]]]]];
   const given = flatten(array);
   const expected = [1, 2, 3, 4, 5, 6, 7];
@@ -20,16 +21,16 @@ Flatten("returns flatten array", () => {
   assert.equal(given, expected);
 });
 
-Flatten("returns flatten array", () => {
-  const array = [1, [2, [3, 4], 5], 6, [7]];
+Flatten("flattens multiple arrays on the same nest level", () => {
+  const array = [1, [2, 3], [4, 5], 6, 7];
   const given = flatten(array);
   const expected = [1, 2, 3, 4, 5, 6, 7];
 
   assert.equal(given, expected);
 });
 
-Flatten("returns flatten array", () => {
-  const array = [1, [2, 3], [4, 5], 6, 7];
+Flatten("flattens array with multiple nested levels", () => {
+  const array = [1, [2, [3, 4], 5], 6, [7]];
   const given = flatten(array);
   const expected = [1, 2, 3, 4, 5, 6, 7];
 

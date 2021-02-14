@@ -12,12 +12,7 @@
       "jsx": true
     }
   },
-  "plugins": [
-    "eslint-plugin-jest",
-    "@typescript-eslint",
-    "eslint-plugin-import",
-    "sonarjs"
-  ],
+  "plugins": ["@typescript-eslint", "eslint-plugin-import", "sonarjs"],
   "rules": {
     // basics
     "spaced-comment": ["warn", "always"],
