@@ -12,12 +12,7 @@
       "jsx": true
     }
   },
-  "plugins": [
-    "eslint-plugin-jest",
-    "@typescript-eslint",
-    "eslint-plugin-import",
-    "sonarjs"
-  ],
+  "plugins": ["@typescript-eslint", "eslint-plugin-import", "sonarjs"],
   "rules": {
     // basics
     "spaced-comment": ["warn", "always"],
@@ -62,10 +57,7 @@
     "sonarjs/no-collection-size-mischeck": "error",
     "sonarjs/no-duplicated-branches": "error",
     "sonarjs/no-identical-conditions": "error",
-    "sonarjs/no-identical-expressions": "error",
-
-    // a11y
-    "jsx-a11y/label-has-associated-control": "off"
+    "sonarjs/no-identical-expressions": "error"
   },
   "extends": [
     "eslint:recommended",
