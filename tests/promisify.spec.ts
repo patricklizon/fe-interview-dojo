@@ -22,9 +22,9 @@ test("is chainable", async () => {
 
   assert.is(count, 0);
 
-  await promisedFun(5).then(() => (count += 2));
+  const res = await promisedFun(5).then((val) => val + 1);
 
-  assert.is(count, 7);
+  assert.is(res, 6);
 });
 
 test.run();
