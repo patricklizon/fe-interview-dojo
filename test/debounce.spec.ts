@@ -1,7 +1,7 @@
 import { suite } from "uvu";
 import assert from "uvu/assert";
 
-import { debounce } from "./debounce";
+import { debounce } from "../src/debounce";
 
 const Debounce = suite("debounce");
 

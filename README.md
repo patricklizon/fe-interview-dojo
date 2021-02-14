@@ -17,6 +17,7 @@ Simple environment for solving coding challenges.
 ## Tools
 
 - [uvu](https://webpack.js.org) - test runner for Node.js and browser
+- [c8](https://github.com/bcoe/c8) - native V8 code-coverage
 - [eslint](https://eslint.org) - static code analysis
 - [prettier](https://prettier.io) - code formatter
 - [husky](https://github.com/typicode/husky) - git hooks
@@ -44,13 +45,14 @@ Summary of defined npm scripts.
 
 ### Test
 
-| Script        | Description               |
-| ------------- | ------------------------- |
-| `test`        | run tests                 |
-| `test:watch`  | run tests in watch mode   |
-| `test:types`  | validates TS types        |
-| `test:format` | validates code formatting |
-| `test:lint`   | validates linting rules   |
+| Script          | Description                   |
+| --------------- | ----------------------------- |
+| `test`          | run tests                     |
+| `test:coverage` | run tests and checks coverage |
+| `test:watch`    | run tests in watch mode       |
+| `test:types`    | validates TS types            |
+| `test:format`   | validates code formatting     |
+| `test:lint`     | validates linting rules       |
 
 ### Fix
 
