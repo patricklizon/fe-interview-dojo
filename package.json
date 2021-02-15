@@ -23,9 +23,7 @@
   },
   "author": "Patryk Lizoń",
   "license": "ISC",
-  "dependencies": {
-    "sinon": "^9.2.4"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@sinonjs/fake-timers": "^7.0.2",
     "@swc-node/register": "^1.0.4",
@@ -42,6 +40,7 @@
     "husky": "^5.0.9",
     "lint-staged": "^10.5.4",
     "prettier": "^2.2.1",
+    "sinon": "^9.2.4",
     "typescript": "^4.1.5",
     "uvu": "^0.5.1",
     "watchlist": "^0.2.3"
