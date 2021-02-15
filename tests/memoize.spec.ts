@@ -1,3 +1,4 @@
+import sinon from "sinon";
 import { test } from "uvu";
 import assert from "uvu/assert";
 
@@ -18,6 +19,23 @@ test("returns correct value for primitives", () => {
   for (const [actual, expected] of data) {
     assert.is(actual, expected);
   }
+});
+
+test("returns memoized value", () => {
+  const spy = sinon.spy();
+  const memoizedMethod = memoize((x: number) => {
+    spy();
+    return x;
+  });
+
+  memoizedMethod(1);
+  memoizedMethod(1);
+  memoizedMethod(2);
+  memoizedMethod(2);
+  memoizedMethod(1);
+  memoizedMethod(2);
+
+  sinon.assert.calledTwice(spy);
 });
 
 test("returns correct value for arrays", () => {
