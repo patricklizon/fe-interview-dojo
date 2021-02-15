@@ -8,7 +8,7 @@
     "fix:lint": "npm run lint -- --fix",
     "postinstall": "husky install",
     "test": "uvu -r @swc-node/register",
-    "test:coverage": "c8 --clean --check-coverage --lines 95 --functions 95 --branches 95 npm test",
+    "test:coverage": "c8 --clean --check-coverage --lines 80 --functions 80 --branches 80 npm test",
     "test:watch": "watchlist tests src -- npm run test",
     "test:format": "prettier --config ./.prettierrc \"{src,test}/**/*.ts\"",
     "test:lint": "eslint --ext=jsx,ts,tsx src",
