@@ -16,3 +16,5 @@ test("computes correctly", () => {
 
   assert.is(actual, expected);
 });
+
+test.run();
