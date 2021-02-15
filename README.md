@@ -61,6 +61,12 @@ Summary of defined npm scripts.
 | `fix:format` | tries to fix formatting    |
 | `fix:lint`   | tries to fix linter issues |
 
+### Other
+
+| Script        | Description                                     |
+| ------------- | ----------------------------------------------- |
+| `lint:staged` | run `fix:format` and `fix:lint` on staged files |
+
 ## Known issues
 
 - [Sinon types have to be patched in tsconfig](https://github.com/sinonjs/fake-timers#help-us-get-our-typescript-definitions-production-ready)
