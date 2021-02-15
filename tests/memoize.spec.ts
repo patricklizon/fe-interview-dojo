@@ -23,17 +23,14 @@ test("returns correct value for primitives", () => {
 
 test("returns memoized value", () => {
   const spy = sinon.spy();
-  const memoizedMethod = memoize((x: number) => {
-    spy();
-    return x;
-  });
+  const memoizedSpy = memoize(spy);
 
-  memoizedMethod(1);
-  memoizedMethod(1);
-  memoizedMethod(2);
-  memoizedMethod(2);
-  memoizedMethod(1);
-  memoizedMethod(2);
+  memoizedSpy(1);
+  memoizedSpy(1);
+  memoizedSpy(2);
+  memoizedSpy(2);
+  memoizedSpy(1);
+  memoizedSpy(2);
 
   sinon.assert.calledTwice(spy);
 });
