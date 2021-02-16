@@ -1,7 +1,7 @@
 import { test } from "uvu";
 import assert from "uvu/assert";
 
-import { binarySearch } from "../../src/arrays/binarySearch";
+import { binarySearch } from "../../src/arrays/binary-search";
 
 test("returns index of element", () => {
   const data: [args: [number[], number], expected: number][] = [

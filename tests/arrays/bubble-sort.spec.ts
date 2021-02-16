@@ -1,7 +1,7 @@
 import assert from "uvu/assert";
 import { test } from "uvu";
 
-import { bubbleSort } from "../../src/arrays/bubbleSort";
+import { bubbleSort } from "../../src/arrays/bubble-sort";
 
 test("sorts array", () => {
   const data: [given: number[], expected: number[]][] = [

@@ -1,7 +1,7 @@
 import { test } from "uvu";
 import assert from "uvu/assert";
 
-import { hasDuplicates } from "../../src/arrays/hasDuplicates";
+import { hasDuplicates } from "../../src/arrays/has-duplicates";
 
 test("array has unique values", () => {
   const actual = hasDuplicates([1, 2, 3, 4]);

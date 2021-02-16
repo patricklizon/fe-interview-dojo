@@ -1,7 +1,7 @@
 import { test } from "uvu";
 import assert from "uvu/assert";
 
-import { removeDuplicates } from "../../src/arrays/removeDuplicates";
+import { removeDuplicates } from "../../src/arrays/remove-duplicates";
 
 test("does not change array without duplicates", () => {
   const arr = [1, 2, 3, 4, 5, 6, 7];
