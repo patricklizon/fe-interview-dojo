@@ -3,15 +3,15 @@
 //    otherwise try with next coin.
 // 3. Return counted coins.
 
-export const makeChange = (denominations: number[], given: number): number => {
+export const makeChange = (denominations: number[], amount: number): number => {
   const coins = denominations.sort((x, y) => x + y);
   let count = 0;
   let idx = 0;
 
-  while (given > 0 && coins[idx]) {
+  while (amount > 0 && coins[idx]) {
     const coin = coins[idx] as number;
-    if (given % coin < given) {
-      given -= coin;
+    if (coin <= amount) {
+      amount -= coin;
       count += 1;
     } else {
       idx += 1;
