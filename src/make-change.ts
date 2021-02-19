@@ -4,19 +4,14 @@
 // 3. Return counted coins.
 
 export const makeChange = (denominations: number[], amount: number): number => {
-  const coins = denominations.sort((x, y) => x + y);
-  let count = 0;
-  let idx = 0;
+  if (amount === 0) return 0;
+  let min = 0;
 
-  while (amount > 0 && coins[idx]) {
-    const coin = coins[idx] as number;
-    if (coin <= amount) {
-      amount -= coin;
-      count += 1;
-    } else {
-      idx += 1;
-    }
-  }
+  denominations.forEach((coin) => {
+    if (amount - coin < 0) return;
+    const localMin = makeChange(denominations, amount - coin);
+    if (min === 0 || localMin < min) min = localMin + 1;
+  });
 
-  return count;
+  return min;
 };
