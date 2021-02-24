@@ -3,10 +3,10 @@ import { test } from "uvu";
 
 import { makeChange } from "../src/make-change";
 
-test("returns leas amount of coins", () => {
+test("returns least amount of coins", () => {
   const data: [
-    arguments: [denominations: number[], given: number],
-    expect: number
+    arguments: [denominations: number[], givenToChange: number],
+    expected: number
   ][] = [
     [[[3], 2], 0],
     [[[5], 0], 0],

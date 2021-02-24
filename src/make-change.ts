@@ -3,6 +3,8 @@
 //    otherwise try with next coin.
 // 3. Return counted coins.
 
+// Function could be wrapped with memoize for optimization
+
 export const makeChange = (denominations: number[], amount: number): number => {
   if (amount === 0) return 0;
   let min = 0;
