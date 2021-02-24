@@ -10,22 +10,16 @@
 
 const merge = (left: number[], right: number[]): number[] => {
   const result = [];
-  let lIdx = 0;
-  let rIdx = 0;
 
-  while (lIdx < left.length && rIdx < right.length) {
+  while (left.length && right.length) {
     // @ts-expect-error accessing numbers
-    if (left[lIdx] < right[rIdx]) {
-      result.push(left[lIdx]);
-      lIdx += 1;
-    } else {
-      result.push(right[rIdx]);
-      rIdx += 1;
-    }
+    left[0] <= right[0]
+      ? result.push(left.shift())
+      : result.push(right.shift());
   }
 
   // @ts-expect-error return array of numbers
-  return result.concat(left.slice(lIdx)).concat(right.slice(rIdx));
+  return [...result, ...left, ...right];
 };
 
 export const mergeSort = (xs: number[]): number[] => {
