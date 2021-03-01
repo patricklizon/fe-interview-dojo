@@ -1,17 +1,17 @@
 import { test } from "uvu";
 import assert from "uvu/assert";
-import FakeTimers from "@sinonjs/fake-timers";
+import sinon from "sinon";
 
 import { sleep } from "../src/sleep";
 
-let clock: FakeTimers.InstalledClock;
+let clock: ReturnType<typeof sinon.useFakeTimers>;
 
 test.before(() => {
-  clock = FakeTimers.install();
+  clock = sinon.useFakeTimers();
 });
 
 test.after(() => {
-  clock.uninstall();
+  clock.restore();
 });
 
 test("pauses function execution for a specified time", async () => {

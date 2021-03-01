@@ -1,17 +1,17 @@
 import { test } from "uvu";
 import assert from "uvu/assert";
-import FakeTimers from "@sinonjs/fake-timers";
+import sinon from "sinon";
 
 import { debounce } from "../src/debounce";
 
-let clock: FakeTimers.InstalledClock;
+let clock: ReturnType<typeof sinon.useFakeTimers>;
 
 test.before(() => {
-  clock = FakeTimers.install();
+  clock = sinon.useFakeTimers();
 });
 
 test.after(() => {
-  clock.uninstall();
+  clock.restore();
 });
 
 test("runs function as soon as possible", () => {
