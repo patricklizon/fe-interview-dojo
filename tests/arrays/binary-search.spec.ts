@@ -3,8 +3,19 @@ import assert from "uvu/assert";
 
 import { binarySearch } from "../../src/arrays/binary-search";
 
+type Data = [
+  params: Parameters<typeof binarySearch>,
+  expected: ReturnType<typeof binarySearch>
+][];
+
+const assertData = ([params, expected]: Data[number], idx: number): void => {
+  const actual = binarySearch(...params);
+
+  return assert.is(actual, expected, `Failed for data @ index: ${idx}`);
+};
+
 test("returns index of element", () => {
-  const data: [args: [number[], number], expected: number][] = [
+  const data: Data = [
     [[[], 4], -1],
     [[[0], 0], 0],
     [[[2, 3], 3], 1],
@@ -13,9 +24,7 @@ test("returns index of element", () => {
     [[[1, 2, 3, 4, 5, 6, 7], 4], 3],
   ];
 
-  for (const [args, expected] of data) {
-    assert.is(binarySearch(...args), expected);
-  }
+  data.forEach(assertData);
 });
 
 test.run();

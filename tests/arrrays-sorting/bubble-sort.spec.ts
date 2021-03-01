@@ -3,8 +3,19 @@ import { test } from "uvu";
 
 import { bubbleSort } from "../../src/sorters/bubble-sort";
 
+type Data = [
+  param: Parameters<typeof bubbleSort>[0],
+  expected: ReturnType<typeof bubbleSort>
+][];
+
+const assertData = ([param, expected]: Data[number], idx: number): void => {
+  const actual = bubbleSort(param);
+
+  return assert.equal(actual, expected, `Failed for data @ index: ${idx}`);
+};
+
 test("sorts array", () => {
-  const data: [given: number[], expected: number[]][] = [
+  const data: Data = [
     [[1], [1]],
     [
       [2, 1],
@@ -20,9 +31,7 @@ test("sorts array", () => {
     ],
   ];
 
-  for (const [given, expected] of data) {
-    assert.equal(bubbleSort(given), expected);
-  }
+  data.forEach(assertData);
 });
 
 test.run();

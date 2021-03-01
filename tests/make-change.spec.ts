@@ -3,11 +3,19 @@ import { test } from "uvu";
 
 import { makeChange } from "../src/make-change";
 
+type Data = [
+  params: Parameters<typeof makeChange>,
+  expected: ReturnType<typeof makeChange>
+][];
+
+const assertData = ([params, expected]: Data[number], idx: number): void => {
+  const actual = makeChange(...params);
+
+  return assert.is(actual, expected, `Failed for data @ index: ${idx}`);
+};
+
 test("returns least amount of coins", () => {
-  const data: [
-    arguments: [denominations: number[], givenToChange: number],
-    expected: number
-  ][] = [
+  const data: Data = [
     [[[3], 2], 0],
     [[[5], 0], 0],
     [[[10, 1, 6], 12], 2],
@@ -20,9 +28,7 @@ test("returns least amount of coins", () => {
     [[[13, 8, 3, 1], 21], 2],
   ];
 
-  for (const [args, expected] of data) {
-    assert.is(makeChange(...args), expected);
-  }
+  data.forEach(assertData);
 });
 
 test.run();

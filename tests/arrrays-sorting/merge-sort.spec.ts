@@ -3,8 +3,19 @@ import assert from "uvu/assert";
 
 import { mergeSort } from "../../src/sorters/merge-sort";
 
+type Data = [
+  param: Parameters<typeof mergeSort>[0],
+  expected: ReturnType<typeof mergeSort>
+][];
+
+const assertData = ([param, expected]: Data[number], idx: number): void => {
+  const actual = mergeSort(param);
+
+  return assert.equal(actual, expected, `Failed for data @ index: ${idx}`);
+};
+
 test("sorts array", () => {
-  const data: [given: number[], expected: number[]][] = [
+  const data: Data = [
     [[], []],
     [[1], [1]],
     [
@@ -21,9 +32,7 @@ test("sorts array", () => {
     ],
   ];
 
-  for (const [given, expected] of data) {
-    assert.equal(mergeSort(given), expected);
-  }
+  data.forEach(assertData);
 });
 
 test.run();
