@@ -1,7 +1,7 @@
 import assert from "uvu/assert";
 import { test } from "uvu";
 
-import { bubbleSort } from "../../src/sorters/bubble-sort";
+import { bubbleSort } from "../../src/arrays-sorting/bubble-sort";
 
 type Data = [
   param: Parameters<typeof bubbleSort>[0],

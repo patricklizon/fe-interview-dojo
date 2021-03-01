@@ -1,7 +1,7 @@
 import { test } from "uvu";
 import assert from "uvu/assert";
 
-import { mergeSort } from "../../src/sorters/merge-sort";
+import { mergeSort } from "../../src/arrays-sorting/merge-sort";
 
 type Data = [
   param: Parameters<typeof mergeSort>[0],
