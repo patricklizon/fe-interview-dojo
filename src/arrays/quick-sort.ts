@@ -4,6 +4,8 @@
 // 3. Call quickSort on both lists
 
 export const quickSort = (xs: number[]): number[] => {
+  if (xs.length <= 1) return xs;
+
   const pivot = xs.pop();
 
   if (pivot === undefined) return xs;
@@ -11,7 +13,7 @@ export const quickSort = (xs: number[]): number[] => {
   const ls: number[] = [];
   const rs: number[] = [];
 
-  xs.forEach((x) => (x < pivot ? ls.push(x) : rs.push(x)));
+  xs.forEach((x) => (x < pivot ? ls : rs).push(x));
 
   return [...quickSort(ls), pivot, ...quickSort(rs)];
 };
