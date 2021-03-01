@@ -10,7 +10,7 @@
     "test": "uvu -r @swc-node/register",
     "test:coverage": "c8 --clean --check-coverage --lines 80 --functions 80 --branches 80 npm test",
     "test:watch": "watchlist tests src -- npm run test",
-    "test:format": "prettier --check --config ./.prettierrc \"{src,test}/**/*.ts\"",
+    "test:format": "prettier --check --config ./.prettierrc \"{src,tests}/**/*.ts\"",
     "test:lint": "eslint --ext=jsx,ts,tsx src",
     "test:types": "tsc -p tsconfig.json --noEmit --skipLibCheck",
     "lint:staged": "lint-staged"
