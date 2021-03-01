@@ -12,7 +12,7 @@ test("finds median of empty arrays", () => {
 
 type Data = [
   params: Parameters<typeof medianOfSortedArrays>,
-  expected: number
+  expected: ReturnType<typeof medianOfSortedArrays>
 ][];
 
 const assertData = ([params, expected]: Data[number], idx: number): void => {
