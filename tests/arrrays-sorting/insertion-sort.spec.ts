@@ -1,7 +1,7 @@
 import assert from "uvu/assert";
 import { test } from "uvu";
 
-import { insertionSort } from "../../src/arrays/insertion-sort";
+import { insertionSort } from "../../src/sorters/insertion-sort";
 
 test("returns empty array", () => {
   const actual = insertionSort([]);

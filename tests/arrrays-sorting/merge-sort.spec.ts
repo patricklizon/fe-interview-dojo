@@ -1,7 +1,7 @@
 import { test } from "uvu";
 import assert from "uvu/assert";
 
-import { mergeSort } from "../../src/arrays/merge-sort";
+import { mergeSort } from "../../src/sorters/merge-sort";
 
 test("sorts array", () => {
   const data: [given: number[], expected: number[]][] = [

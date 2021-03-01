@@ -1,7 +1,7 @@
 import assert from "uvu/assert";
 import { test } from "uvu";
 
-import { quickSort } from "../../src/arrays/quick-sort";
+import { quickSort } from "../../src/sorters/quick-sort";
 
 test("returns empty array", () => {
   const actual = quickSort([]);
