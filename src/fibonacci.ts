@@ -6,3 +6,23 @@ export const fibonacci = (x: number): number => {
 
   return fibonacci(x - 1) + fibonacci(x - 2);
 };
+
+export const fibonacciSequence = (size: number): number[] => {
+  const result: number[] = [];
+
+  let i = 1;
+  while (i <= size) {
+    if (i <= 2) {
+      result.push(1);
+    } else {
+      // @ts-expect-error accessing numbers
+      // eslint-disable-next-line @typescript-eslint/restrict-plus-operands
+      const sum = result[i - 2] + result[i - 3];
+      result.push(sum);
+    }
+
+    i++;
+  }
+
+  return result;
+};
