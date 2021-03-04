@@ -8,20 +8,15 @@ export const fibonacci = (x: number): number => {
 };
 
 export const fibonacciSequence = (size: number): number[] => {
+  if (size < 1) return [];
   const result: number[] = [];
 
   let i = 1;
   while (i <= size) {
-    if (i <= 2) {
-      result.push(1);
-    } else {
-      // @ts-expect-error accessing numbers
-      // eslint-disable-next-line @typescript-eslint/restrict-plus-operands
-      const sum = result[i - 2] + result[i - 3];
-      result.push(sum);
-    }
-
-    i++;
+    // @ts-expect-error accessing numbers
+    // eslint-disable-next-line @typescript-eslint/restrict-plus-operands
+    result.push(i <= 2 ? 1 : result[i - 2] + result[i - 3]);
+    i += 1;
   }
 
   return result;

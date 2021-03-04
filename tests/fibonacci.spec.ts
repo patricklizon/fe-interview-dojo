@@ -29,17 +29,37 @@ Fibonacci.run();
 
 const FibonacciSequence = suite("fibonacciSequence");
 
+FibonacciSequence("handles negative size values", () => {
+  assert.equal(fibonacciSequence(-1), []);
+  assert.equal(fibonacciSequence(-22), []);
+  assert.equal(fibonacciSequence(-44), []);
+});
+
 FibonacciSequence("calculates fibonacci sequence correctly", () => {
-  assert.equal(fibonacciSequence(1), [1]);
-  assert.equal(fibonacciSequence(2), [1, 1]);
-  assert.equal(fibonacciSequence(3), [1, 1, 2]);
-  assert.equal(fibonacciSequence(4), [1, 1, 2, 3]);
-  assert.equal(fibonacciSequence(5), [1, 1, 2, 3, 5]);
-  assert.equal(fibonacciSequence(6), [1, 1, 2, 3, 5, 8]);
-  assert.equal(fibonacciSequence(7), [1, 1, 2, 3, 5, 8, 13]);
-  assert.equal(fibonacciSequence(8), [1, 1, 2, 3, 5, 8, 13, 21]);
-  assert.equal(fibonacciSequence(9), [1, 1, 2, 3, 5, 8, 13, 21, 34]);
-  assert.equal(fibonacciSequence(10), [1, 1, 2, 3, 5, 8, 13, 21, 34, 55]);
+  const data: [
+    arg: Parameters<typeof fibonacciSequence>[0],
+    expected: ReturnType<typeof fibonacciSequence>
+  ][] = [
+    [0, []],
+    [1, [1]],
+    [2, [1, 1]],
+    [3, [1, 1, 2]],
+    [4, [1, 1, 2, 3]],
+    [5, [1, 1, 2, 3, 5]],
+    [6, [1, 1, 2, 3, 5, 8]],
+    [7, [1, 1, 2, 3, 5, 8, 13]],
+    [8, [1, 1, 2, 3, 5, 8, 13, 21]],
+    [9, [1, 1, 2, 3, 5, 8, 13, 21, 34]],
+    [10, [1, 1, 2, 3, 5, 8, 13, 21, 34, 55]],
+  ];
+
+  for (const [arg, expected] of data) {
+    assert.equal(
+      fibonacciSequence(arg),
+      expected,
+      `returns wrong sequence for size: ${arg}`
+    );
+  }
 });
 
 FibonacciSequence.run();
