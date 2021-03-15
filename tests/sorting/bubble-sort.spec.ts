@@ -1,34 +1,33 @@
-import { test } from "uvu";
 import assert from "uvu/assert";
+import { test } from "uvu";
 
-import { mergeSort } from "../../src/arrays-sorting/merge-sort";
+import { bubbleSort } from "../../src/sorting/bubble-sort";
 
 type Data = [
-  param: Parameters<typeof mergeSort>[0],
-  expected: ReturnType<typeof mergeSort>
+  param: Parameters<typeof bubbleSort>[0],
+  expected: ReturnType<typeof bubbleSort>
 ][];
 
 const assertData = ([param, expected]: Data[number], idx: number): void => {
-  const actual = mergeSort(param);
+  const actual = bubbleSort(param);
 
   return assert.equal(actual, expected, `Failed for data @ index: ${idx}`);
 };
 
 test("sorts array", () => {
   const data: Data = [
-    [[], []],
     [[1], [1]],
     [
-      [7, 3, 5],
-      [3, 5, 7],
+      [2, 1],
+      [1, 2],
     ],
     [
-      [7, 3, 5, 7],
-      [3, 5, 7, 7],
+      [9, 0, 0, 0, 1],
+      [0, 0, 0, 1, 9],
     ],
     [
-      [7, 3, 5, 4, 9, 1],
-      [1, 3, 4, 5, 7, 9],
+      [9, 1, 8, 5, 3, 7],
+      [1, 3, 5, 7, 8, 9],
     ],
   ];
 
