@@ -1,7 +1,7 @@
 import assert from "uvu/assert";
 import { test } from "uvu";
 
-import { balancedBrackets } from "../../src/queues/balanced-brackets";
+import { balancedBrackets } from "../../src/stacks/balanced-brackets";
 
 type Data = [
   args: Parameters<typeof balancedBrackets>,
