@@ -38,3 +38,5 @@ test("returns correct size", () => {
     )
   );
 });
+
+test.run();
