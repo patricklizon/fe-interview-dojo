@@ -2,20 +2,17 @@ type Inp = { email: string; contacts: string[] }[];
 type Duplicates = { [email: string]: string[] };
 
 export const recordOfDuplicateEmails = (data: Inp): Duplicates => {
-  const ret: Duplicates = {};
+  const ret = new Map<string, string[]>();
 
   for (const { email, contacts } of data) {
-    for (const contact of contacts) {
-      ret[contact] = [...(ret[contact] ?? []), email];
+    for (const c of contacts) {
+      ret.set(c, [...(ret.get(c) ?? []), email]);
     }
-
-    // we could delete key here, but it won't work for edge case data
-    // which is one entry with multiple contacts
   }
 
-  const entries = Object.entries(ret).filter(
-    ([_, emails]) => emails.length > 1
-  );
+  for (const [e, es] of ret.entries()) {
+    if (es.length < 2) ret.delete(e);
+  }
 
-  return Object.fromEntries(entries);
+  return Object.fromEntries(ret.entries());
 };
